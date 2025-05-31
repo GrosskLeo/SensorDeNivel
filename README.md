@@ -1,91 +1,55 @@
+# Sistema de Alerta de Nível de Água com Detecção por Sensor Ultrassônico #
 
+Este projeto tem como objetivo desenvolver um sistema de alerta simples e eficiente para monitoramento do nível da água em ambientes sujeitos a alagamentos, como rios, lagos, bueiros ou ruas. A solução foi desenvolvida utilizando a plataforma Arduino Uno, com simulação feita via Wokwi.
 
+## 📌 Descrição do Projeto ##
 
-# 🌊 Sistema de Alerta para Nível de Água com Arduino
+O sistema utiliza um sensor ultrassônico para medir continuamente a distância entre o sensor e a superfície da água. Quando é detectado um movimento de aproximação da água além de um limite pré-estabelecido — indicando possível transbordamento — o sistema emite um aviso visual ao usuário por meio de um LED vermelho e uma mensagem em um display LCD.
+⚙️ Componentes Utilizados
 
-Este projeto apresenta um **sistema de alerta para monitoramento do nível da água** desenvolvido com **Arduino UNO** e simulado na plataforma **Wokwi**. O sistema é projetado para alertar o usuário sobre o risco de **transbordamento em rios, lagos ou vias públicas** por meio de sinais **visuais e sonoros**, utilizando **LEDs (verde e vermelho)**, um **buzzer** e um **display LCD 16x2** com interface I2C.
+   Arduino Uno
 
-🔗 [Simulação no Wokwi](https://wokwi.com/projects/432217472355232769)
+   Sensor ultrassônico (HC-SR04)
 
----
+   LED vermelho
 
-## 📌 Objetivo
+   Display LCD 16x2 com interface I2C
 
-O objetivo do sistema é oferecer uma **solução simples, acessível e eficiente** para alertar a população ou operadores sobre situações de risco relacionadas ao aumento do nível da água, como enchentes ou alagamentos. É ideal para uso em áreas ribeirinhas, regiões urbanas com histórico de alagamentos, ou como sistema auxiliar de defesa civil.
+   Resistores
 
----
+   Jumpers e protoboard (emuladas na simulação)
 
-## 🔧 Componentes Utilizados
+## 🎯 Objetivo 
 
-* **Arduino UNO**
-* **Sensor PIR (simulando o acionamento em caso de água em determinado nível)**
-* **LED Verde** – Indica condição normal (nível de água seguro)
-* **LED Vermelho** – Indica alerta de nível elevado
-* **Buzzer** – Emite alarme sonoro quando o nível de água está crítico
-* **Display LCD 16x2 I2C** – Exibe o status do sistema
-* **Jumpers e resistores**
-* **Simulação online via Wokwi**
+O objetivo principal do sistema é emitir alertas visuais imediatos em caso de risco de alagamento, contribuindo para ações preventivas em áreas vulneráveis. É um sistema simples, de baixo custo e ideal para fins educacionais, testes e até mesmo implementação em protótipos reais.
+## 🧠 Funcionamento
 
----
+   O sensor ultrassônico realiza medições contínuas da distância até a superfície abaixo dele.
 
-## ⚙️ Funcionamento do Sistema
+   Se a água se aproxima do sensor além de um limite seguro (por exemplo, indicando que o nível está subindo rapidamente), o sistema ativa um LED vermelho.
 
-Embora o sistema utilize um **sensor PIR** na simulação do Wokwi, este representa de forma conceitual o **gatilho de alerta** causado por sensores de nível d'água (como sensores ultrassônicos, de boia ou resistivos, que podem ser implementados em uma versão física).
+   Simultaneamente, uma mensagem de alerta é exibida no display LCD, indicando a situação ao usuário.
 
-1. **Nível de água normal:**
+## 🛠️ Possibilidades de Expansão
 
-   * **LED verde** aceso
-   * **LED vermelho** e **buzzer** desligados
-   * **Display** exibe: `Nível seguro`
+   Inclusão de comunicação via Wi-Fi ou GSM para envio de alertas remotos (SMS, e-mail ou app).
 
-2. **Nível de água elevado (sensor ativado):**
+   Registro de dados em nuvem para análise histórica de níveis de água.
 
-   * **LED vermelho** aceso
-   * **LED verde** apagado
-   * **Buzzer** emite alarme
-   * **Display** exibe: `Risco de Alagamento!`
+   Integração com sirenes ou outros dispositivos de alarme.
 
-Esse comportamento permite alertar rapidamente usuários e autoridades sobre a necessidade de evacuação ou de medidas preventivas.
+## 📍 Aplicações
 
----
+   Monitoramento de rios e córregos urbanos
 
-## ▶️ Como Testar
+   Controle de níveis em caixas d’água e reservatórios
 
-Você pode simular o funcionamento completo do sistema diretamente no Wokwi:
+   Alerta em áreas urbanas sujeitas a enchentes
 
-🔗 [Clique aqui para abrir a simulação](https://wokwi.com/projects/432217472355232769)
+## 👥 Autores
 
-Para utilizar em hardware real:
+   Leonardo Grosskopf (RM: 562255)
 
-1. Instale o [Arduino IDE](https://www.arduino.cc/en/software)
-2. Instale a biblioteca `LiquidCrystal_I2C` via Gerenciador de Bibliotecas
-3. Monte o circuito conforme o esquema da simulação
-4. Faça upload do código `.ino` para sua placa Arduino UNO
+   Julia Schiavi (RM: 562418)
 
----
-
-## 📁 Estrutura do Projeto
-
-```
-├── main.ino           # Código principal do Arduino
-├── README.md          # Documentação do projeto
-```
-
----
-
-## 💡 Possíveis Melhorias
-
-* Substituir o sensor PIR por sensor de nível d'água real (ultrassônico, boia, condutivo, etc.)
-* Adicionar módulo Wi-Fi (ESP8266/ESP32) para envio de alertas por internet
-* Integração com sistema de SMS, aplicativo ou plataforma de monitoramento
-* Registro histórico dos níveis em cartão SD ou servidor remoto
-
----
-
-## 👨‍💻 Autores
-
-* **Leonardo Grosskopf** – RM: 562255
-* **Julia Schiavi** – RM: 562418
-* **Thayná Lopes** – RM: 566349
-
-
+   Thayná Lopes (RM: 566349)
