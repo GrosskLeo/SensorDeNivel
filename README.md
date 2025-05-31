@@ -59,3 +59,105 @@ O objetivo principal do sistema é emitir alertas visuais imediatos em caso de r
    Julia Schiavi (RM: 562418)
 
    Thayná Lopes (RM: 566349)
+
+## 📺 Vídeo
+
+   [Link para acessar o vídeo](https://drive.google.com/file/d/1CXTy4Ln-UYjAq3As-CGXwS6C0kyddf-Q/view?usp=sharing)
+
+## 💻 Código
+
+      // Inclui as bibliotecas necessárias
+      #include <Wire.h>
+      #include <LiquidCrystal_I2C.h>
+
+      // Define os pinos para o sensor ultrassônico
+      const int trigPin = 9;
+      const int echoPin = 10;
+
+      // Define o pino para o LED
+      const int ledPin = 8;
+
+      // Define a distância limite (em cm) para considerar o nível alto
+      // Ajuste este valor conforme a necessidade do seu recipiente
+      const int nivelAltoDistancia = 10;
+      
+      // Inicializa o LCD no endereço I2C 0x27 (pode variar), para um display 16x2
+      LiquidCrystal_I2C lcd(0x27, 16, 2);
+      
+      // Variáveis para armazenar a duração do pulso e a distância
+      long duration;
+      int distance;
+      
+      void setup() {
+        // Inicializa a comunicação serial para debug (opcional)
+        Serial.begin(9600);
+      
+        // Inicializa o LCD
+        lcd.init();
+        lcd.backlight();
+        lcd.setCursor(0, 0);
+        lcd.print("Sensor Nivel");
+        lcd.setCursor(0, 1);
+        lcd.print("de Água");
+        delay(1000);
+        lcd.clear();
+      
+        // Define os pinos do sensor ultrassônico
+        pinMode(trigPin, OUTPUT); // Pino TRIG como saída
+        pinMode(echoPin, INPUT);  // Pino ECHO como entrada
+      
+        // Define o pino do LED como saída
+        pinMode(ledPin, OUTPUT);
+        digitalWrite(ledPin, LOW); // Garante que o LED comece desligado
+      }
+      
+      void loop() {
+        // Limpa o pino TRIG
+        digitalWrite(trigPin, LOW);
+        delayMicroseconds(2);
+      
+        // Define o pino TRIG em HIGH por 10 microsegundos para enviar o pulso ultrassônico
+        digitalWrite(trigPin, HIGH);
+        delayMicroseconds(10);
+        digitalWrite(trigPin, LOW);
+      
+        // Lê o pino ECHO, retorna a duração do pulso em microsegundos
+        duration = pulseIn(echoPin, HIGH);
+      
+        // Calcula a distância
+        // Velocidade do som no ar = 343 m/s ou 0.0343 cm/µs
+        // Distância = (Tempo do pulso * Velocidade do som) / 2 (ida e volta)
+        distance = duration * 0.0343 / 2;
+      
+        // Limpa o LCD
+        lcd.clear();
+        lcd.setCursor(0, 0);
+        lcd.print("Distancia: ");
+        lcd.print(distance);
+        lcd.print("cm");
+      
+        // Verifica se o nível da água está alto
+        if (distance <= nivelAltoDistancia && distance > 0) { // distance > 0 para evitar leituras inválidas
+          lcd.setCursor(0, 1);
+          lcd.print("Nivel Alto!");
+          digitalWrite(ledPin, HIGH); // Acende o LED
+          Serial.print("Distancia: ");
+          Serial.print(distance);
+          Serial.println("cm");
+        } else {
+          lcd.setCursor(0, 1);
+          lcd.print("Nivel OK");
+          digitalWrite(ledPin, LOW); // Apaga o LED
+          Serial.print("Distancia: ");
+          Serial.print(distance);
+          Serial.println("cm");
+        }
+      
+        // Aguarda 500ms antes da próxima leitura
+        delay(500);
+      }
+
+
+
+   
+   
