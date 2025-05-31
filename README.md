@@ -1,6 +1,8 @@
 # Sistema de Alerta de Nível de Água com Detecção por Sensor Ultrassônico #
 
-Este projeto tem como objetivo desenvolver um sistema de alerta simples e eficiente para monitoramento do nível da água em ambientes sujeitos a alagamentos, como rios, lagos, bueiros ou ruas. A solução foi desenvolvida utilizando a plataforma Arduino Uno, com simulação feita via Wokwi.
+Este projeto tem como objetivo desenvolver um sistema de alerta simples e eficiente para monitoramento do nível da água em ambientes sujeitos a alagamentos, como rios, lagos, bueiros ou ruas. A solução foi desenvolvida utilizando a plataforma Arduino Uno, com simulação feita via Wokwi. Você pode acessar a simulação pelo link abaixo:
+
+Simulação: https://wokwi.com/projects/new/arduino-uno
 
 ## 📌 Descrição do Projeto ##
 
