@@ -2,6 +2,9 @@
 
 Este projeto tem como objetivo desenvolver um sistema de alerta simples e eficiente para monitoramento do nível da água em ambientes sujeitos a alagamentos, como rios, lagos, bueiros ou ruas. A solução foi desenvolvida utilizando a plataforma Arduino Uno, com simulação feita via Wokwi. Você pode acessar a simulação pelo [link](https://wokwi.com/projects/432484773644440577)
 
+![ChatGPT Image 31 de mai  de 2025, 13_37_11](https://github.com/user-attachments/assets/4fa18e27-5cca-44eb-ab75-77efd93a49b3)
+
+
 ## 📌 Descrição do Projeto ##
 
 O sistema utiliza um sensor ultrassônico para medir continuamente a distância entre o sensor e a superfície da água. Quando é detectado um movimento de aproximação da água além de um limite pré-estabelecido — indicando possível transbordamento — o sistema emite um aviso visual ao usuário por meio de um LED vermelho e uma mensagem em um display LCD.
@@ -30,6 +33,8 @@ O objetivo principal do sistema é emitir alertas visuais imediatos em caso de r
 
    Simultaneamente, uma mensagem de alerta é exibida no display LCD, indicando a situação ao usuário.
 
+   ![ChatGPT Image 31 de mai  de 2025, 13_39_20](https://github.com/user-attachments/assets/e8f87c8c-e28d-4652-963c-fc93b6692d0c)
+
 ## 🛠️ Possibilidades de Expansão
 
    Inclusão de comunicação via Wi-Fi ou GSM para envio de alertas remotos (SMS, e-mail ou app).
@@ -37,6 +42,7 @@ O objetivo principal do sistema é emitir alertas visuais imediatos em caso de r
    Registro de dados em nuvem para análise histórica de níveis de água.
 
    Integração com sirenes ou outros dispositivos de alarme.
+ 
 
 ## 📍 Aplicações
 
